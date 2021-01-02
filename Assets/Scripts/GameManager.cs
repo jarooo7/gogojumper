@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public bool inGame;
     public GameObject resetButton;
     public Text coinScore;
+    public Text highTextScore;
 
     public bool isImmortal;
     public float immortalityTime;
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
 
 
     private float score;
+    private float highScore;
     private int coins;
 
     // Start is called before the first frame update
@@ -45,8 +47,18 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            coins = 0;
+            highScore = 0;
             PlayerPrefs.SetInt("Coins", 0);
+        }
+
+        if (PlayerPrefs.HasKey("High"))
+        {
+            highScore = PlayerPrefs.GetFloat("High");
+        }
+        else
+        {
+            highScore = 0;
+            PlayerPrefs.SetFloat("High", 0);
         }
 
         InitializeGame();
@@ -56,13 +68,19 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         if (!GameManager.instance.inGame) return;
-        score += worldScrollingSpeed;
+        
         UpdateOnScreenScore();
     }
 
     void UpdateOnScreenScore()
     {
+        score += worldScrollingSpeed;
+        if (score > highScore)
+        {
+            highScore = score;
+        }
         scoreText.text = score.ToString("0");
+        highTextScore.text = highScore.ToString("0");
         coinScore.text = coins.ToString();
     }
 
@@ -82,6 +100,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         inGame = false;
+        PlayerPrefs.SetFloat("High",highScore);
         resetButton.SetActive(true);
     }
 
