@@ -37,6 +37,10 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void Exit()
+    {
+        Application.Quit();
+    }
     public void PlayBtn()
     {
         SceneManager.LoadScene("Main");

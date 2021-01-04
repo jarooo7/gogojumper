@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
     void FixedUpdate()
     {
         if (!GameManager.instance.inGame) return;
-        
+
         UpdateOnScreenScore();
     }
 
@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         inGame = false;
-        PlayerPrefs.SetFloat("High",highScore);
+        PlayerPrefs.SetFloat("High", highScore);
         resetButton.SetActive(true);
     }
 
@@ -108,6 +108,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+   
 
     public void CoinCollection(int value = 1)
     {
