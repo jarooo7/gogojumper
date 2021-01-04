@@ -8,6 +8,7 @@ TagManager:
   - Coin
   - Immortality
   - Magnet
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -47,6 +48,9 @@ TagManager:
     locked: 0
   - name: Bg
     uniqueID: 3034477469
+    locked: 0
+  - name: other
+    uniqueID: 994266297
     locked: 0
   - name: Obstacle
     uniqueID: 2479757955

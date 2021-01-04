@@ -13,12 +13,12 @@ public class MenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        int hs = 0;
-        if (PlayerPrefs.HasKey("HighScoreValue"))
+        float hs = 0;
+        if (PlayerPrefs.HasKey("High"))
         {
-            hs = PlayerPrefs.GetInt("HighScoreValue");
+            hs = PlayerPrefs.GetFloat("High");
         }
-        highScoreValue.text = hs.ToString();
+        highScoreValue.text = hs.ToString("0");
 
         int coins = 0;
         if (PlayerPrefs.HasKey("Coins"))
