@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float obstacleSpawnPositionX;
     public bool inGame;
     public GameObject resetButton;
+    public GameObject pausaMenu;
     public Text coinScore;
     public Text highTextScore;
 
@@ -107,6 +108,18 @@ public class GameManager : MonoBehaviour
     public void ResetGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void PauseGame()
+    {
+         inGame = false;
+         pausaMenu.SetActive(true);
+    }
+
+    public void PlayGame()
+    {
+        inGame = true;
+        pausaMenu.SetActive(false);
     }
 
     public void LoadMenu()
