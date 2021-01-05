@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         InitializeGame();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         if (!GameManager.instance.inGame) return;
