@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
     private float highScore;
     private int coins;
 
-    // Start is called before the first frame update
     void Start()
     {
         instance = this;
