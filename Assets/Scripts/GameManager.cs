@@ -63,7 +63,6 @@ public class GameManager : MonoBehaviour
 
         InitializeGame();
     }
-
     void FixedUpdate()
     {
         if (!GameManager.instance.inGame) return;
